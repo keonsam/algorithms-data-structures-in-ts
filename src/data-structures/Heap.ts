@@ -1,5 +1,5 @@
-export class Heap {
-  items: number[];
+export class Heap<T> {
+  items: T[];
 
   constructor() {
     this.items = [];
@@ -44,8 +44,8 @@ export class Heap {
   }
 }
 
-export class MinHeap extends Heap {
-  add(item: number) {
+export class MinHeap<T> extends Heap<T> {
+  add(item: T) {
     this.items.push(item);
     this.bubbleUp();
   }
@@ -79,8 +79,8 @@ export class MinHeap extends Heap {
   }
 }
 
-export class MaxHeap extends Heap {
-  add(item: number) {
+export class MaxHeap<T> extends Heap<T> {
+  add(item: T) {
     this.items.push(item);
     this.bubbleUp();
   }
@@ -114,7 +114,7 @@ export class MaxHeap extends Heap {
   }
 }
 
-const minHeap1 = new MinHeap();
+const minHeap1 = new MinHeap<number>();
 
 minHeap1.add(1);
 minHeap1.add(10);
@@ -128,7 +128,7 @@ console.log(minHeap1.poll());
 console.log(minHeap1.poll());
 console.log(minHeap1.poll());
 
-const maxHeap1 = new MaxHeap();
+const maxHeap1 = new MaxHeap<number>();
 
 maxHeap1.add(1);
 maxHeap1.add(10);
